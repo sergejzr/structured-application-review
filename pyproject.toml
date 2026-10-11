@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bewerbungsanalyse"
+version = "0.1.0"
+description = "Zweistufige, belegbasierte Analyse von Bewerbungsunterlagen"
+requires-python = ">=3.11"
+dependencies = ["requests>=2.31"]
+
+[project.optional-dependencies]
+local = ["pymupdf>=1.24"]
+hpc = ["mineru>=2.5"]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.scripts]
+bewerbungsanalyse = "bewerbungsanalyse.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["bewerbungsanalyse*"]
